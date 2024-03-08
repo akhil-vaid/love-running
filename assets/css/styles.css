@@ -23,6 +23,16 @@ body{
     color: #3a3a3a;
     font-family: "Lato", sans-serif;
 }
+h1, h2, h3{
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2a2a2a;
+}
+
+.hidden-heading{
+    display: none;
+}
 /* header section */
 header{
     background-color: #ffffff;
@@ -42,12 +52,7 @@ header a{
     color: inherit;
     
 }
-h1{
-    font-family: "Oswald", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #2a2a2a;
-}
+
 #menu {
     
     list-style-type: none;
@@ -88,10 +93,103 @@ nav{
 
 /* main section */
 main{
-    background-color: rgb(222, 116, 116);
+    
     /* to push the footer down */
     flex: 1 0 auto; 
     margin-top: 47px; 
+}
+
+/* Hero*/
+#hero{
+    width: 100%;
+    height: 600px;
+    background: url("../images/hero-image.webp") no-repeat center center/cover;
+    position: relative;
+}
+/*this rgba value sets opacity to semi-transparent*/
+#cover-text{
+    background-color: rgba(241, 109, 107,.7);
+    font-size: 130%;
+    position: absolute;
+    bottom: 30px;
+    width: 80%;
+    min-height: 200px;
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+#cover-text > h2, #cover-text >h3{
+    color: #ffffff;
+}
+
+/* Reasons section */
+#reasons {
+    width: 90%;
+    margin: 20px auto;
+}
+
+#reasons h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 280%;
+}
+
+#benefits-physical > div,
+#benefits-mental > div {
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+#benefits p {
+    padding: 0 20px;
+}
+
+#benefits hr {
+    border-top: 1px solid #3a3a3a;
+    margin: 5px 0;
+}
+
+/*resons image*/
+#circle-cover-bg{
+    background: url("../images/reasons-image.webp") no-repeat top center/cover;
+    height: 90vw;
+    width: 90vw;
+    margin-bottom:20px;
+    border-radius: 50%;
+    max-width:300px;
+    max-height:300px;
+}
+
+#benifits-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Meetup Times Section*/
+#times{
+    background: url("../images/dublin-city.webp") no-repeat center/cover;
+    /*handels responsivity without the need for media query*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#times div{
+    color: #fafafa;
+    background-color: rgba(0,0,0,.6);
+    padding: 15px;
+    text-align: center;
+    /*this will not wrap on screens of less then 400px wide.
+    Each div will expand to fill the availabel space on its row*/
+    flex-basis: 200px;
+    flex-grow: 1;
+    /* Creates a grid of meetup time divs over the background image */
+    border: 2px solid white;
+}
+
+#times h3{
+    /*Overrides the heading color set in general styles*/
+    color: #fafafa;
 }
 
 /* footer section */
@@ -138,12 +236,56 @@ main{
     main {
         margin-top: 79px;
     }
+    #cover-text{
+        width:300px;
+        right:50px;
+    }
+
+    /*Resons section*/
+    #benefits-physical, 
+    #benefits-mental{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+    }
+    #benefits-physical > div,
+    #benefits-mental > div{
+        width:75%;
+    }
+    #benefits-mental > div{
+        text-align:end;
+        align-self:flex-end;
+    }
 }
 
 /*Larger devices (lapotops and desktops, 992px and up ) */
 @media screen and (min-width:992px) {
     #menu a:hover{
         border-bottom: 1px solid #3a3a3a;
+    }
+    
+}
+
+@media screen and (min-width:1200px) {
+    /* reasons section*/
+    #benefits{
+        display: flex;
+        flex-direction: row;
+    }
+    #benefits > div{
+        flex: 1;
+    }
+    #benefits-image{
+        order: 0;
+    }
+    #benefits-mental{
+        order: 1;
+    }
+    #benefits-mental > div{
+        align-self: flex-start;
+    }
+    #benefits-physical > div{
+        align-self: flex-end;
     }
     
 }
